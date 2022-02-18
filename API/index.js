@@ -1,7 +1,7 @@
 // ------------------ Data -------------------
 // sh killport 7000
 
-const employees = {
+var employees = [{
 
     "001": {
 
@@ -37,7 +37,7 @@ const employees = {
         "dtt" : "Legal",
         "email" : "mohna@xyz.com"
     }
-}
+}]
 
 
 //----------------------------------
@@ -86,10 +86,22 @@ app.post('/add', (req, res) => {
     
     
     try{
+    
+    
+    
     console.log('New Data: ');
-    console.log(req.body.name_);
-    console.log(req.body.dtt);
-    console.log(req.body.email);
+
+    const name_ = req.body.name_;
+    const dtt = req.body.dtt;
+    const email = req.body.email;
+
+    const args = [{name_, dtt, email}];
+    console.log(args);
+
+    employees.push(args);
+    
+    
+
 
     
     // return {message: true};
